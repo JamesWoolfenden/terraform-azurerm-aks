@@ -52,16 +52,26 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [azurerm_api_management.example](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/api_management) | resource |
+| [azurerm_disk_encryption_set.pike](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/disk_encryption_set) | resource |
+| [azurerm_kubernetes_cluster.pike](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster) | resource |
 
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_api"></a> [api](#input\_api) | n/a | <pre>object({<br>    name                 = string<br>    publisher_name       = string<br>    publisher_email      = string<br>    sku_name             = string<br>    subnet_id            = string<br>    virtual_network_type = string<br>  })</pre> | n/a | yes |
-| <a name="input_client_certificate"></a> [client\_certificate](#input\_client\_certificate) | n/a | `bool` | `true` | no |
+| <a name="input_aks_name"></a> [aks\_name](#input\_aks\_name) | n/a | `string` | `"example-aks1"` | no |
+| <a name="input_automatic_channel_upgrade"></a> [automatic\_channel\_upgrade](#input\_automatic\_channel\_upgrade) | n/a | `string` | `"stable"` | no |
+| <a name="input_default_node_pool"></a> [default\_node\_pool](#input\_default\_node\_pool) | n/a | <pre>object({<br>    name       = string<br>    node_count = number<br>    vm_size    = string<br>    max_pods   = number<br>  })</pre> | n/a | yes |
+| <a name="input_key_vault_key_id"></a> [key\_vault\_key\_id](#input\_key\_vault\_key\_id) | n/a | `string` | n/a | yes |
+| <a name="input_local_account_disabled"></a> [local\_account\_disabled](#input\_local\_account\_disabled) | n/a | `bool` | `true` | no |
 | <a name="input_location"></a> [location](#input\_location) | n/a | `string` | n/a | yes |
-| <a name="input_rg_name"></a> [rg\_name](#input\_rg\_name) | n/a | `string` | n/a | yes |
+| <a name="input_log_analytics_workspace_id"></a> [log\_analytics\_workspace\_id](#input\_log\_analytics\_workspace\_id) | n/a | `string` | n/a | yes |
+| <a name="input_network_plugin"></a> [network\_plugin](#input\_network\_plugin) | n/a | `string` | `"azure"` | no |
+| <a name="input_private_cluster"></a> [private\_cluster](#input\_private\_cluster) | n/a | `bool` | `true` | no |
+| <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | n/a | `string` | n/a | yes |
+| <a name="input_secret_rotation_enabled"></a> [secret\_rotation\_enabled](#input\_secret\_rotation\_enabled) | n/a | `bool` | `true` | no |
+| <a name="input_sku_tier"></a> [sku\_tier](#input\_sku\_tier) | n/a | `string` | `"Paid"` | no |
+| <a name="input_tags"></a> [tags](#input\_tags) | This is to help you add tags to your cloud objects | `map(any)` | n/a | yes |
 
 ## Outputs
 

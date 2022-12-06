@@ -1,6 +1,6 @@
 resource "azurerm_kubernetes_cluster" "pike" {
-	# checkov:skip=CKV_AZURE_7: INVALID
-	# checkov:skip=CKV_AZURE_116: INVALID
+  # checkov:skip=CKV_AZURE_7: INVALID
+  # checkov:skip=CKV_AZURE_116: INVALID
   name                      = var.aks_name
   location                  = var.location
   resource_group_name       = var.resource_group_name
@@ -35,14 +35,14 @@ resource "azurerm_kubernetes_cluster" "pike" {
   }
   network_profile {
     network_policy = "azure"
-    network_plugin=var.network_plugin
+    network_plugin = var.network_plugin
   }
   role_based_access_control_enabled = true
 }
 
 variable "network_plugin" {
-  type = string
-  default="azure"
+  type    = string
+  default = "azure"
 }
 
 variable "log_analytics_workspace_id" {
@@ -50,6 +50,6 @@ variable "log_analytics_workspace_id" {
 }
 
 variable "aks_name" {
-  type = string
+  type    = string
   default = "example-aks1"
 }
