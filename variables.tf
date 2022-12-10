@@ -50,3 +50,17 @@ variable "private_cluster" {
 variable "key_vault_key_id" {
   type = string
 }
+
+variable "network_plugin" {
+  type    = string
+  default = "azure"
+}
+
+variable "log_analytics_workspace_id" {
+  type = string
+}
+
+variable "aks_name" {
+  type    = string
+  default = "example-aks1"
+}

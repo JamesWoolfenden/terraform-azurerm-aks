@@ -39,17 +39,3 @@ resource "azurerm_kubernetes_cluster" "pike" {
   }
   role_based_access_control_enabled = true
 }
-
-variable "network_plugin" {
-  type    = string
-  default = "azure"
-}
-
-variable "log_analytics_workspace_id" {
-  type = string
-}
-
-variable "aks_name" {
-  type    = string
-  default = "example-aks1"
-}
