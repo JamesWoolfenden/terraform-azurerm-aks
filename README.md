@@ -2,7 +2,7 @@
 
 With Secure Defaults from Checkov
 
-[![Build Status](https://github.com/JamesWoolfenden/terraform-azurerm-aks/workflows/Verify%20and%20Bump/badge.svg?branch=master)](https://github.com/JamesWoolfenden/terraform-azurerm-aks)
+[![Build Status](https://github.com/JamesWoolfenden/terraform-azurerm-aks/workflows/Verify/badge.svg?branch=master)](https://github.com/JamesWoolfenden/terraform-azurerm-aks)
 [![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-azurerm-aks.svg)](https://github.com/JamesWoolfenden/terraform-azurerm-aks/releases/latest)
 [![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/JamesWoolfenden/terraform-azurerm-aks.svg?label=latest)](https://github.com/JamesWoolfenden/terraform-azurerm-aks/releases/latest)
 ![Terraform Version](https://img.shields.io/badge/tf-%3E%3D0.14.0-blue.svg)
@@ -40,7 +40,7 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | n/a |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.35.0 |
 
 ## Modules
 
@@ -81,7 +81,38 @@ No outputs.
 This is the policy required to build this project:
 
 <!-- BEGINNING OF PRE-COMMIT-PIKE DOCS HOOK -->
+The Terraform resource required is:
 
+```golang
+
+resource "azurerm_role_definition" "terraform_pike" {
+  role_definition_id = local.uuid
+  name               = "terraform_pike"
+  scope              = data.azurerm_subscription.primary.id
+
+  permissions {
+    actions = [
+    "Microsoft.Compute/diskEncryptionSets/delete",
+    "Microsoft.Compute/diskEncryptionSets/read",
+    "Microsoft.Compute/diskEncryptionSets/write",
+    "Microsoft.KeyVault/vaults/read"]
+    not_actions = []
+  }
+
+  assignable_scopes = [
+    data.azurerm_subscription.primary.id,
+  ]
+}
+
+locals {
+  uuid = uuid()
+}
+
+data "azurerm_subscription" "primary" {
+}
+
+
+```
 <!-- END OF PRE-COMMIT-PIKE DOCS HOOK -->
 
 ## Related Projects
@@ -104,7 +135,7 @@ Please use the [issue tracker](https://github.com/JamesWoolfenden/terraform-azur
 
 ## Copyrights
 
-Copyright © 2022 James Woolfenden
+Copyright © 2022-23 James Woolfenden
 
 ## License
 
